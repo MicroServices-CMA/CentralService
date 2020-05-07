@@ -1,4 +1,4 @@
-package org.microservice.model;
+package org.microservice.models;
 
 import java.util.Date;
 

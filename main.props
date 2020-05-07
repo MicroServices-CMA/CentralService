@@ -1,8 +1,11 @@
 server.port = 8000
 server.context = /
-path.file.banks = ./dbfiles/banks.txt
-path.file.orders = ./dbfiles/orders.txt
-path.file.repayments = ./dbfiles/repayments.txt
+
+clientsService.port = 8000
+clientsService.path = /userData
+
+creditHistoryService.port = 8500
+creditHistoryService.path = /creditHistory
 
 log4j.rootLogger= TRACE, stdout, file
 log4j.logger.net.spy=TRACE

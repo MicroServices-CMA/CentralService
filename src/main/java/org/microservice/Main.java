@@ -1,9 +1,10 @@
 package org.microservice;
 
+
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHandler;
-import org.microservice.handlers.MainServlet;
+import org.microservice.handlers.CentralServlet;
 import org.microservice.utils.Common;
 import org.microservice.utils.PropertyManager;
 import org.slf4j.Logger;
@@ -33,8 +34,8 @@ public class Main
     }
 
     private static void runServer() {
-        int port = PropertyManager.getPropertyAsInteger("server.port", 8026);
-        String contextStr = PropertyManager.getPropertyAsString("server.context", "server");
+        int port = PropertyManager.getPropertyAsInteger("server.port", 8000);
+        String contextStr = PropertyManager.getPropertyAsString("server.context", "/");
 
         server = new Server(port);
 
@@ -45,12 +46,12 @@ public class Main
         ServletHandler handler = new ServletHandler();
         server.setHandler(handler);
 
-        handler.addServletWithMapping(MainServlet.class, "/path");
-         try
+        handler.addServletWithMapping(CentralServlet.class, "/centralServer");
+        try
         {
             server.start();
-            log.error("Server has started at port: " + port);
-            //server.join();
+            log.warn("Server has started at port: " + port);
+            server.join();
         }catch(Throwable t){
             log.error("Error while starting server", t);
         }
@@ -59,6 +60,7 @@ public class Main
     private static void stopServer() {
         try {
             if(server.isRunning()){
+                log.warn("Server is being stopped.");
                 server.stop();
             }
         } catch (Exception e) {
@@ -66,4 +68,11 @@ public class Main
         }
     }
 
+    public static Logger getLog() {
+        return log;
+    }
+
+    public static void setLog(Logger log) {
+        Main.log = log;
+    }
 }
