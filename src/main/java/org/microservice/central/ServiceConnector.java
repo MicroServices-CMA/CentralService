@@ -16,11 +16,11 @@ import org.microservice.utils.Common;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class ChiConnector<T> {
+public class ServiceConnector<T> {
 
     int port;
     String pathSpec;
-    public ChiConnector(int port, String pathSpec) {
+    public ServiceConnector(int port, String pathSpec) {
         this.port = port;
         this.pathSpec = pathSpec;
     }
