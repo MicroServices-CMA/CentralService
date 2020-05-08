@@ -3,7 +3,6 @@ package org.microservice.handlers;
 import org.microservice.Main; // TODO: 08.05.2020 create log file for GET requests and delete this import + Getters and Setters in Main class
 import org.microservice.classes.ServiceConnector;
 import org.microservice.models.Answer;
-import org.microservice.models.History;
 import org.microservice.utils.Common;
 import org.microservice.utils.PropertyManager;
 

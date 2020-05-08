@@ -1,5 +1,7 @@
 package org.microservice.model;
 
+import org.microservice.models.Pay;
+
 import java.util.Date;
 import java.util.List;
 

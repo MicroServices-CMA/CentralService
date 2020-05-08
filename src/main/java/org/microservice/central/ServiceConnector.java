@@ -1,4 +1,4 @@
-package org.microservice.classes;
+package org.microservice.central;
 
 import com.google.gson.reflect.TypeToken;
 import org.apache.http.HttpEntity;
@@ -9,6 +9,7 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.microservice.Main;
+import org.microservice.classes.Pair;
 import org.microservice.models.Answer;
 import org.microservice.utils.Common;
 import org.microservice.utils.PropertyManager;
@@ -52,7 +53,7 @@ public class ServiceConnector {
                     return answer;*/
             } else {
                 return new Answer(null, null);
-                //return new Answer(status.getStatusCode(), .u);// TODO: 08.05.2020 Continue here
+                // return new Answer(status.getStatusCode(), .u);// TODO: 08.05.2020 Continue here
             }
         } catch (Exception e) {
             Main.getLog().error("Error in Central Server. Description: " + e.getMessage());
