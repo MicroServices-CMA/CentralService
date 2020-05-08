@@ -32,7 +32,7 @@ public class Main
         },"Stop Jetty Hook"));
 
     }
-
+// ddd
     private static void runServer() {
         int port = PropertyManager.getPropertyAsInteger("server.port", 8000);
         String contextStr = PropertyManager.getPropertyAsString("server.context", "/");
