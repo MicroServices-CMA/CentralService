@@ -1,4 +1,4 @@
-package org.microservice.model;
+package org.microservice.classes;
 
 import org.microservice.models.Pay;
 
