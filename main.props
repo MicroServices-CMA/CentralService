@@ -1,7 +1,7 @@
 server.port = 8000
-server.context = /
+server.context = /*
 
-clientsService.port = 8000
+clientsService.port = 7000
 clientsService.path = /userData
 
 creditHistoryService.port = 8500
