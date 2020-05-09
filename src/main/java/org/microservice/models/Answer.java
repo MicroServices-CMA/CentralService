@@ -1,15 +1,18 @@
 package org.microservice.models;
 
-import org.microservice.classes.Pair;
+import org.microservice.classes.usersData.Client;
+import org.microservice.classes.creditHistory.History;
 
 public class Answer
 {
     private String status;
-    private String Data;
+    private Client client;
+    private History history;
 
-    public Answer(String status, String data) {
+    public Answer(String status, Client client, History history) {
         this.status = status;
-        Data = data;
+        this.client = client;
+        this.history = history;
     }
 
     public String getStatus() {
@@ -20,11 +23,19 @@ public class Answer
         this.status = status;
     }
 
-    public String getData() {
-        return Data;
+    public Client getClient() {
+        return client;
     }
 
-    public void setData(String data) {
-        Data = data;
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public History getHistory() {
+        return history;
+    }
+
+    public void setHistory(History history) {
+        this.history = history;
     }
 }

@@ -1,6 +1,5 @@
 package org.microservice.classes;
 
-import com.google.gson.reflect.TypeToken;
 import org.apache.http.HttpEntity;
 import org.apache.http.StatusLine;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -10,7 +9,6 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.microservice.Main;
 import org.microservice.models.Answer;
-import org.microservice.utils.Common;
 import org.microservice.utils.PropertyManager;
 
 import javax.servlet.http.HttpServletResponse;
@@ -39,19 +37,27 @@ public class ServiceConnector {
             if (status.getStatusCode() == HttpServletResponse.SC_FOUND) {
                 Pair<Integer, String> creditServerResp = callCreditServer(id);
                 if (creditServerResp.t.equals(HttpServletResponse.SC_FOUND)) {
-                    return new Answer("FOUND", "{ 'client': " + result +
+                    return new Answer("CREDIT_FOUND", "{ 'client': " + result +
                             ",  'history': " + creditServerResp.u + " }");
                 } else {
-                    return new Answer("NOT_FOUND", creditServerResp.u); // TODO: 08.05.2020 And here
+                    return new Answer("NO_CREDIT_FOUND", creditServerResp.u); // TODO: 08.05.2020 And here
                 }
-            } else {
-                return new Answer(null, null);
-                //return new Answer(status.getStatusCode(), .u);// TODO: 08.05.2020 Continue here
+                /*HttpEntity entity = response.getEntity();
+                if (entity != null) {
+                    String result = EntityUtils.toString(entity);
+                    Answer<T> answer = Common.getPrettyGson().fromJson(result, new TypeToken<Answer<T>>() {
+                    }.getType());
+                    return answer;*/
+            } else if (status.getStatusCode() == HttpServletResponse.SC_BAD_REQUEST){
+                return new Answer("BAD_REQUEST", result);
+            } else if (status.getStatusCode() == HttpServletResponse.SC_NO_CONTENT){
+                return new Answer("NO_CONTENT", result);
+            } else if (status.getStatusCode() == HttpServletResponse.SC_INTERNAL_SERVER_ERROR){
+                return new Answer("INTERNAL_SERVER_ERROR", result);
             }
         } catch (Exception e) {
             Main.getLog().error("Error in Central Server. Description: " + e.getMessage());
-            return new Answer("INTERNAL_SERVER_ERROR",
-                    "{ 'details': 'Internal Error in Central Server.' }");
+            return new Answer("INTERNAL_SERVER_ERROR", "An internal Error occurred in Central Server");
         }
 
 
@@ -73,7 +79,7 @@ public class ServiceConnector {
         } catch (Exception e) {
             Main.getLog().error("Error in Central Server. Description: " + e.getMessage());
             return new Pair<>(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
-                    "{ 'details': 'Internal Error in Central Server.' }");
+                    "Internal Error in Central Server");
         }
     }
 

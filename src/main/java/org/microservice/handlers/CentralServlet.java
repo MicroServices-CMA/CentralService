@@ -19,10 +19,11 @@ public class CentralServlet extends HttpServlet {
             ServiceConnector connector;
             String clientId = request.getParameter("id");
             if (clientId == null) {
-                Main.getLog().error("Error on clientId, value not provided.");
+                Main.getLog().error("Error: id not provided.");
                 response.setContentType("application/json");
                 response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-                response.getWriter().println(Common.getPrettyGson().toJson(new Answer("ERROR", null)));
+                response.getWriter().println(Common.getPrettyGson().toJson(
+                        new Answer("BAD_REQUEST", "No id provided")));
                 return;
             }
             try {
@@ -41,15 +42,8 @@ public class CentralServlet extends HttpServlet {
         } else {
             Main.getLog().error("Empty request.");
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-            response.getWriter().println("EMPTY_REQUEST");
+            response.getWriter().println(Common.getPrettyGson().toJson(
+                    new Answer("EMPTY_REQUEST", null, null)));
         }
     }
 }
-
-/*
-catch(Exception e) {
-        response.setContentType("application/json");
-        response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-        Answer answer = new Answer("Error: " + e.getMessage().toString(), null);
-        response.getWriter().println(Common.getPrettyGson().toJson(answer));
-        }*/

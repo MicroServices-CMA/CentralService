@@ -14,7 +14,7 @@ public class PropertyManager
     private static Logger log = LoggerFactory.getLogger(PropertyManager.class.getSimpleName());
     private static Properties properties = new Properties();
 
-    public static final String propsPath = "./main.props";
+    public static final String propsPath = "./centralService.props";
     public static Map<String, String> getPropertiesByPrefix(String prefix){
         Map<String, String> map = new HashMap<>();
 

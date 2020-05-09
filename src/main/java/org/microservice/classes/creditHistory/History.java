@@ -1,4 +1,4 @@
-package org.microservice.classes;
+package org.microservice.classes.creditHistory;
 
 import org.microservice.models.Pay;
 

@@ -42,7 +42,7 @@ public class Common
         builder.setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE);
         builder.setDateFormat("yyyy-MM-dd HH:mm:ss");
         prettyBuilder.setPrettyPrinting();
-        prettyBuilder.setDateFormat("yyyy-MM-dd HH:mm:ss");
+        // prettyBuilder.setDateFormat("yyyy-MM-dd HH:mm:ss");
     }
     private static Gson gsonUCC = builder.serializeNulls().create();
     private static Gson prettyGson = prettyBuilder.create();
