@@ -11,6 +11,9 @@ import org.microservice.utils.PropertyManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class Main
 {
     private static Logger log = LoggerFactory.getLogger(Main.class.getSimpleName());
@@ -47,29 +50,24 @@ public class Main
         ServletHandler handler = new ServletHandler();
         server.setHandler(handler);
 
-        Thread run = new Thread(new Runnable() {
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                while(true){
-                    try {
-                        Heartbeat heartbeat = new Heartbeat();
-                        int clientsServicePort = PropertyManager.getPropertyAsInteger("clientsService.port", 7000);
-                        int creditHistoryPort = PropertyManager.getPropertyAsInteger("creditHistoryService.port", 8500);
-                        String heartbeatPath = PropertyManager.getPropertyAsString("heartbeat.path", "/heart");
-                        if(heartbeat.checkedBeat(creditHistoryPort, heartbeatPath) && heartbeat.checkedBeat(clientsServicePort, heartbeatPath)){
-                            System.out.println("do it");
-                        }
-                        else
-                        {
-                            System.out.println("no do it");
-                        }
-                        Thread.sleep(3000); //1000 - 1 сек
-                    } catch (InterruptedException ex) {
-                    }
+                Heartbeat heartbeat = new Heartbeat();
+                int clientsServicePort = PropertyManager.getPropertyAsInteger("clientsService.port", 7000);
+                int creditHistoryPort = PropertyManager.getPropertyAsInteger("creditHistoryService.port", 8500);
+                String heartbeatPath = PropertyManager.getPropertyAsString("heartbeat.path", "/heart");
+                if(heartbeat.checkedBeat(creditHistoryPort, heartbeatPath) && heartbeat.checkedBeat(clientsServicePort, heartbeatPath)){
+                    System.out.println("Services connected!");
+                }
+                else
+                {
+                    System.out.println("Services no connected!");
+                    log.error("Services no connected!");
                 }
             }
-        });
-        run.start();
+        }, 3 * 1000, 3*1000);
 
         handler.addServletWithMapping(CentralServlet.class, "/centralServer");
         try
