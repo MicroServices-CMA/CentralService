@@ -7,6 +7,8 @@ clientsService.path = /userData
 creditHistoryService.port = 8500
 creditHistoryService.path = /creditHistory
 
+heartbeat.path = /heart
+
 log4j.rootLogger= TRACE, stdout, file
 log4j.logger.net.spy=TRACE
 log4j.appender.stdout=org.apache.log4j.ConsoleAppender

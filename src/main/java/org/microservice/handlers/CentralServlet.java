@@ -26,7 +26,7 @@ public class CentralServlet extends HttpServlet {
                 return;
             }
             try {
-                int clientsServicePort = PropertyManager.getPropertyAsInteger("clientsService.port", 8000);
+                int clientsServicePort = PropertyManager.getPropertyAsInteger("clientsService.port", 7000);
                 String clientsServicePath = PropertyManager.getPropertyAsString("clientsService.path", "/userData");
                 connector = new ServiceConnector(clientsServicePort, clientsServicePath);
 
