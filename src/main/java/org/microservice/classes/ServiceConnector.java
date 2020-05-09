@@ -44,12 +44,6 @@ public class ServiceConnector {
                 } else {
                     return new Answer("NOT_FOUND", creditServerResp.u); // TODO: 08.05.2020 And here
                 }
-                /*HttpEntity entity = response.getEntity();
-                if (entity != null) {
-                    String result = EntityUtils.toString(entity);
-                    Answer<T> answer = Common.getPrettyGson().fromJson(result, new TypeToken<Answer<T>>() {
-                    }.getType());
-                    return answer;*/
             } else {
                 return new Answer(null, null);
                 //return new Answer(status.getStatusCode(), .u);// TODO: 08.05.2020 Continue here

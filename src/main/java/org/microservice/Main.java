@@ -4,6 +4,7 @@ package org.microservice;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHandler;
+import org.microservice.classes.Heartbeat;
 import org.microservice.handlers.CentralServlet;
 import org.microservice.utils.Common;
 import org.microservice.utils.PropertyManager;
@@ -46,6 +47,30 @@ public class Main
         ServletHandler handler = new ServletHandler();
         server.setHandler(handler);
 
+        Thread run = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while(true){
+                    try {
+                        Heartbeat heartbeat = new Heartbeat();
+                        int clientsServicePort = PropertyManager.getPropertyAsInteger("clientsService.port", 7000);
+                        int creditHistoryPort = PropertyManager.getPropertyAsInteger("creditHistoryService.port", 8500);
+                        String heartbeatPath = PropertyManager.getPropertyAsString("heartbeat.path", "/heart");
+                        if(heartbeat.checkedBeat(creditHistoryPort, heartbeatPath) && heartbeat.checkedBeat(clientsServicePort, heartbeatPath)){
+                            System.out.println("do it");
+                        }
+                        else
+                        {
+                            System.out.println("no do it");
+                        }
+                        Thread.sleep(3000); //1000 - 1 сек
+                    } catch (InterruptedException ex) {
+                    }
+                }
+            }
+        });
+        run.start();
+
         handler.addServletWithMapping(CentralServlet.class, "/centralServer");
         try
         {
@@ -55,6 +80,8 @@ public class Main
         }catch(Throwable t){
             log.error("Error while starting server", t);
         }
+
+
     }
 
     private static void stopServer() {

@@ -1,11 +1,13 @@
 server.port = 8000
-server.context = /
+server.context = /*
 
-clientsService.port = 8000
+clientsService.port = 7000
 clientsService.path = /userData
 
 creditHistoryService.port = 8500
 creditHistoryService.path = /creditHistory
+
+heartbeat.path = /heart
 
 log4j.rootLogger= TRACE, stdout, file
 log4j.logger.net.spy=TRACE
