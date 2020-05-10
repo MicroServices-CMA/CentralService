@@ -1,5 +1,5 @@
 server.port = 8000
-server.context = /*
+server.context = /centranServer
 
 clientsService.port = 7000
 clientsService.path = /userData

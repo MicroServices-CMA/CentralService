@@ -58,13 +58,17 @@ public class Main
                 int clientsServicePort = PropertyManager.getPropertyAsInteger("clientsService.port", 7000);
                 int creditHistoryPort = PropertyManager.getPropertyAsInteger("creditHistoryService.port", 8500);
                 String heartbeatPath = PropertyManager.getPropertyAsString("heartbeat.path", "/heart");
-                if(heartbeat.checkedBeat(creditHistoryPort, heartbeatPath) && heartbeat.checkedBeat(clientsServicePort, heartbeatPath)){
-                    System.out.println("Services connected!");
+                if(heartbeat.isAlive(clientsServicePort, heartbeatPath)){
+                    System.out.println("СДОЧ включен!");
+                } else {
+                    System.out.println("**** СДОЧ отключен ****");
+                    log.error("СДОЧ отключен!");
                 }
-                else
-                {
-                    System.out.println("Services no connected!");
-                    log.error("Services no connected!");
+                if(heartbeat.isAlive(creditHistoryPort, heartbeatPath)){
+                    System.out.println("СКИ включен!");
+                }else{
+                    System.out.println("**** СКИ отключен ****");
+                    log.info("СКИ отключен!");
                 }
             }
         }, 3 * 1000, 3*1000);
@@ -74,9 +78,10 @@ public class Main
         {
             server.start();
             log.warn("Server has started at port: " + port);
+            System.out.println("Server has started at port: " + port);
             server.join();
         }catch(Throwable t){
-            log.error("Error while starting server", t);
+            log.error("Error while starting server.", t);
         }
 
 
@@ -89,7 +94,7 @@ public class Main
                 server.stop();
             }
         } catch (Exception e) {
-            log.error("Error while stopping server", e);
+            log.error("Error while stopping server.", e);
         }
     }
 

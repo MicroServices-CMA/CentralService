@@ -3,13 +3,18 @@ package org.microservice.models;
 import org.microservice.classes.usersData.Client;
 import org.microservice.classes.creditHistory.History;
 
-public class Answer
+import java.util.List;
+
+public class Answer2Central
 {
     private String status;
     private Client client;
-    private History history;
+    private List<History> history;
 
-    public Answer(String status, Client client, History history) {
+    public Answer2Central() {
+    }
+
+    public Answer2Central(String status, Client client, List<History> history) {
         this.status = status;
         this.client = client;
         this.history = history;
@@ -31,11 +36,11 @@ public class Answer
         this.client = client;
     }
 
-    public History getHistory() {
+    public List<History> getHistory() {
         return history;
     }
 
-    public void setHistory(History history) {
+    public void setHistory(List<History> history) {
         this.history = history;
     }
 }
