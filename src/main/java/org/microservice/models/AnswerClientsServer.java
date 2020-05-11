@@ -7,6 +7,9 @@ public class AnswerClientsServer {
     private String details;
     private Client client;
 
+    public AnswerClientsServer() {
+    }
+
     public AnswerClientsServer(String status, String details, Client client) {
         this.status = status;
         this.details = details;

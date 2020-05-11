@@ -15,6 +15,9 @@ public class History
     List<Pay> pays;
     double debt;
 
+    public History() {
+    }
+
     public History(int orderId, String nameBank, double sum, Date date, int time, List<Pay> pays, double debt) {
         this.orderId = orderId;
         this.nameBank = nameBank;
