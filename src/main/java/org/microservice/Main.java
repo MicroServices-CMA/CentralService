@@ -106,3 +106,5 @@ public class Main
         Main.log = log;
     }
 }
+
+// TODO: 10.05.2020 Jmeter, паксималь 

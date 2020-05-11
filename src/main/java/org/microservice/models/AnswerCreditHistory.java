@@ -9,6 +9,9 @@ public class AnswerCreditHistory {
     private String details;
     private List<History> items;
 
+    public AnswerCreditHistory() {
+    }
+
     public AnswerCreditHistory(String status, String details, List<History> items) {
         this.items = items;
         this.status = status;
