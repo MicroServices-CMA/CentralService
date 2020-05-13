@@ -37,7 +37,7 @@ public class Main
 
     }
 // ddd
-    private static void runServer() {
+    public static void runServer() {
         int port = PropertyManager.getPropertyAsInteger("server.port", 8000);
         String contextStr = PropertyManager.getPropertyAsString("server.context", "/");
 
@@ -79,7 +79,7 @@ public class Main
             server.start();
             log.warn("Server has started at port: " + port);
             System.out.println("Server has started at port: " + port);
-            server.join();
+            //server.join();
         }catch(Throwable t){
             log.error("Error while starting server.", t);
         }
@@ -87,7 +87,7 @@ public class Main
 
     }
 
-    private static void stopServer() {
+    public static void stopServer() {
         try {
             if(server.isRunning()){
                 log.warn("Server is being stopped.");
