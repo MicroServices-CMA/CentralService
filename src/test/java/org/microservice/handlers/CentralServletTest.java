@@ -55,7 +55,7 @@ public class CentralServletTest {
     @Test
     public void doGetPageError() throws Exception
     {
-        String url = "http://localhost:8000/ceerntralServer?sssurname=Sergei&name=Lavrov&passportSerial=094dfgd77528&email=Lavrov@mail.ru&country=Russia";
+        String url = "http://localhost:8000/ceeууrntralServer?sssurname=Sergei&name=Lavrov&passportSerial=094dfgd77528&email=Lavrov@mail.ru&country=Russia";
         HttpClient client = HttpClientBuilder.create().build();
         HttpGet request = new HttpGet(url);
         HttpResponse response = client.execute(request);

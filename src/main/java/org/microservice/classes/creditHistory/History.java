@@ -1,6 +1,6 @@
 package org.microservice.classes.creditHistory;
 
-import org.microservice.models.Pay;
+//import org.microservice.models.Pay;
 
 import java.util.Date;
 import java.util.List;
