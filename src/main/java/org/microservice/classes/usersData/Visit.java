@@ -7,6 +7,10 @@ public class Visit {
     private Date startDate;
     private Date endDate;
     private String purpose;
+
+    public Visit() {
+    }
+
     public Visit(Date _startDate, Date _endDate, String _purpose){
         startDate = _startDate;
         endDate = _endDate;

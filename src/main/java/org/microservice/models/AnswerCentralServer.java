@@ -11,6 +11,7 @@ public class AnswerCentralServer
     private Client client;
     private List<History> history;
 
+
     public AnswerCentralServer() {
     }
 

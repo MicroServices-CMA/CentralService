@@ -5,6 +5,7 @@ import java.util.Locale;
 import java.util.Map;
 
 public class Country implements Comparable<Country> {
+
     static private Map<String, Country> countries = new HashMap<>();
 
     private String iso; /** 2-letter country code defined in <i> ISO-3166 <i> */
@@ -12,14 +13,12 @@ public class Country implements Comparable<Country> {
     private String name;
 
     public Country(){
-        iso = "";
-        code = "";
-        name = "";
     }
 
-    public Country(String iso, String code, String name) {
+    public Country(String iso) {
         Country c = countries.getOrDefault(iso, new Country(){
-            {this.setIso("RU");
+            {
+                this.setIso("RU");
                 this.setCode("643");
                 this.setName("The Russian Federation");
             }
@@ -38,7 +37,7 @@ public class Country implements Comparable<Country> {
             String code = locale.getCountry();
             String name = locale.getDisplayCountry();
 
-            countries.put(name, new Country(iso, code, name));
+            countries.put(name, new Country(iso));
         }
     }
 

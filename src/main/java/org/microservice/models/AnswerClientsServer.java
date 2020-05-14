@@ -3,9 +3,11 @@ package org.microservice.models;
 import org.microservice.classes.usersData.Client;
 
 public class AnswerClientsServer {
+
     private String status;
     private String details;
     private Client client;
+
 
     public AnswerClientsServer() {
     }

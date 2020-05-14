@@ -83,8 +83,6 @@ public class Main
         }catch(Throwable t){
             log.error("Error while starting server.", t);
         }
-
-
     }
 
     public static void stopServer() {
@@ -106,5 +104,3 @@ public class Main
         Main.log = log;
     }
 }
-
-// TODO: 10.05.2020 Jmeter, паксималь 
