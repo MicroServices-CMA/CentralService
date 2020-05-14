@@ -7,10 +7,13 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.HttpServletResponse;
 
 public class Heartbeat {
+    private static Logger logHeartbeat = LoggerFactory.getLogger(Heartbeat.class.getSimpleName());
 
     public boolean isAlive(int port, String pathSpec) {
         CloseableHttpClient httpClient = HttpClients.createDefault();
@@ -21,13 +24,9 @@ public class Heartbeat {
             StatusLine status = response.getStatusLine();
             HttpEntity entity = response.getEntity();
             String result = EntityUtils.toString(entity);
-            if (status.getStatusCode() == HttpServletResponse.SC_OK) {
-                return true;
-            } else {
-                return false;
-            }
+            return status.getStatusCode() == HttpServletResponse.SC_OK;
         } catch (Exception e) {
-            e.printStackTrace();
+            logHeartbeat.warn("Warning: ", e);
         }
         return false;
     }
