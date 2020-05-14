@@ -1,10 +1,16 @@
 package org.microservice.models;
 
-import org.microservice.classes.usersData.Client;
-import org.microservice.classes.creditHistory.History;
+import org.microservice.structures.usersData.Client;
+import org.microservice.structures.creditHistory.History;
 
 import java.util.List;
 
+/**
+ * This is the server standard answer format.
+ *
+ * @author Ханк
+ * @version 1.0
+ */
 public class AnswerCentralServer
 {
     private String status;

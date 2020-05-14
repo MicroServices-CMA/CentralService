@@ -1,9 +1,16 @@
-package org.microservice.classes.usersData;
+package org.microservice.structures.usersData;
 
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
+
+/**
+ * Defines the base structure for <code>Country</code> entities.
+ *
+ * @author Ханк
+ * @version 1.0
+ */
 public class Country implements Comparable<Country> {
 
     static private Map<String, Country> countries = new HashMap<>();

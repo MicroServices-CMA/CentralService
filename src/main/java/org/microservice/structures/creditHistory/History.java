@@ -1,10 +1,16 @@
-package org.microservice.classes.creditHistory;
+package org.microservice.structures.creditHistory;
 
 //import org.microservice.models.Pay;
 
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Defines the base structure for <code>History</code> entities.
+ *
+ * @author Ксения
+ * @version 1.0
+ */
 public class History
 {
     int orderId;

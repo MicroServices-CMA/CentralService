@@ -1,4 +1,4 @@
-package org.microservice.processings;
+package org.microservice.processors;
 
 import com.google.gson.reflect.TypeToken;
 import org.apache.http.HttpEntity;
@@ -7,7 +7,6 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
-import org.microservice.Main;
 import org.microservice.models.AnswerCentralServer;
 import org.microservice.models.AnswerClientsServer;
 import org.microservice.models.AnswerCreditHistory;
@@ -19,7 +18,14 @@ import java.io.IOException;
 
 import static org.microservice.handlers.CentralServlet.logCentralServlet;
 
-public interface Searching {
+
+/**
+ * Contains different predefined methods used to search data by sending requests to other servers;
+ *
+ * @author Ханк
+ * @version 1.0
+ */
+public interface SearchProcessor {
 
     default AnswerCentralServer searchData(HttpServletRequest request) {
 

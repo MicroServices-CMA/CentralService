@@ -1,8 +1,9 @@
-package org.microservice.classes.usersData;
+package org.microservice.structures.usersData;
 
 /**
  * Defines a mailing address.
- * @author hankd
+ *
+ * @author Ханк
  * @version 1.0
  */
 public class PhysicalAddress {

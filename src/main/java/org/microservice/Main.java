@@ -4,7 +4,7 @@ package org.microservice;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHandler;
-import org.microservice.classes.Heartbeat;
+import org.microservice.structures.Heartbeat;
 import org.microservice.handlers.CentralServlet;
 import org.microservice.utils.Common;
 import org.microservice.utils.PropertyManager;

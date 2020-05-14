@@ -1,11 +1,17 @@
-package org.microservice.processings;
+package org.microservice.processors;
 
 import org.microservice.models.AnswerCentralServer;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public interface Analysing extends ResponseProcessing {
+/**
+ * Contains a unique predefined method used to analyse the answer received from request to other servers;
+ *
+ * @author Ханк
+ * @version 1.1
+ */
+public interface AnalyseProcessor extends ResponseProcessor {
 
     default void analyseAnswer(AnswerCentralServer ans, HttpServletResponse response) throws IOException {
 

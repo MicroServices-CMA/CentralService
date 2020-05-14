@@ -1,8 +1,14 @@
-package org.microservice.classes.usersData;
+package org.microservice.structures.usersData;
 
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ * Defines the base structure for <code>Client</code> entities.
+ *
+ * @author Ханк
+ * @version 1.0
+ */
 public class Client implements Comparable<Client>, Serializable, Cloneable
 {
     private String clientId;

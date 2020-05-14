@@ -1,4 +1,4 @@
-package org.microservice.classes;
+package org.microservice.structures;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.StatusLine;
@@ -12,6 +12,12 @@ import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * This servlet is used to send and receive requests to other servers trying to identify their state.
+ *
+ * @author Ханк
+ * @version 1.0
+ */
 public class Heartbeat {
     private static Logger logHeartbeat = LoggerFactory.getLogger(Heartbeat.class.getSimpleName());
 

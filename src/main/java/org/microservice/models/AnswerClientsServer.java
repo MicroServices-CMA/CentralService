@@ -1,7 +1,13 @@
 package org.microservice.models;
 
-import org.microservice.classes.usersData.Client;
+import org.microservice.structures.usersData.Client;
 
+/**
+ * This is the clientsMicroService standard answer format.
+ *
+ * @author Ханк
+ * @version 1.0
+ */
 public class AnswerClientsServer {
 
     private String status;

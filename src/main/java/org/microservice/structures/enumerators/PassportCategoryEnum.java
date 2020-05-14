@@ -1,4 +1,4 @@
-package org.microservice.classes.enumerators;
+package org.microservice.structures.enumerators;
 
 public enum PassportCategoryEnum {
     ORDINARY,

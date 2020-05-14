@@ -1,11 +1,17 @@
-package org.microservice.processings;
+package org.microservice.processors;
 
 import org.microservice.utils.Common;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public interface ResponseProcessing {
+/**
+ * Contains different predefined methods used to set response parameters:.
+ *
+ * @author Ханк
+ * @version 1.0
+ */
+public interface ResponseProcessor {
     default void setRespStatus(HttpServletResponse response, int code){
         response.setStatus(code);
     }

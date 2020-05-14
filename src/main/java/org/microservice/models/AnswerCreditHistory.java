@@ -1,8 +1,14 @@
 package org.microservice.models;
 
-import org.microservice.classes.creditHistory.History;
+import org.microservice.structures.creditHistory.History;
 import java.util.List;
 
+/**
+ * This is the CreditHistoryMicroService standard answer format.
+ *
+ * @author Ханк
+ * @version 1.0
+ */
 public class AnswerCreditHistory {
 
     private String status;

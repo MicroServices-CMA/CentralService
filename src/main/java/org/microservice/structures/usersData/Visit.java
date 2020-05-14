@@ -1,8 +1,13 @@
-package org.microservice.classes.usersData;
+package org.microservice.structures.usersData;
 
 import java.util.Date;
 import java.lang.String;
 
+/**
+ * Defines the base structure for <code>Visit</code> entities.
+ *
+ * @author Ханк
+ */
 public class Visit {
     private Date startDate;
     private Date endDate;

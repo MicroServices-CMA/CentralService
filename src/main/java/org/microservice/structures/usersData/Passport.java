@@ -1,14 +1,18 @@
-package org.microservice.classes.usersData;
+package org.microservice.structures.usersData;
 
 
-import org.microservice.classes.enumerators.GenderEnum;
-import org.microservice.classes.enumerators.PassportCategoryEnum;
+import org.microservice.structures.enumerators.GenderEnum;
+import org.microservice.structures.enumerators.PassportCategoryEnum;
 
 import java.util.*;
 
 
 /**
  * The <code>Passport</code> class is a simplified representation of a real passport.
+ *  it defines the base structure for <code>Passport</code> entities.
+ *
+ *  * @author Ханк
+ *  * @version 2.1
  */
 public class Passport {
 

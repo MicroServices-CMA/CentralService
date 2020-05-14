@@ -1,7 +1,13 @@
-package org.microservice.classes.creditHistory;
+package org.microservice.structures.creditHistory;
 
 import java.util.Date;
 
+/**
+ * Defines the base structure for <code>Pay</code> entities.
+ *
+ * @author Ксения
+ * @version 1.0
+ */
 public class Pay
 {
     Date date;
